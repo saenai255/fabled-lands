@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkwohiw5rmbj3"]
+
+[ext_resource type="Script" path="res://Scenes/World/World.gd" id="1_fdmtu"]
+[ext_resource type="PackedScene" uid="uid://h7vxeapdswab" path="res://Scenes/Units/Creature/Creature.tscn" id="2_3tx73"]
+
+[node name="WorldScene" type="Node2D"]
+script = ExtResource("1_fdmtu")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Scenes/Units/Creature/Creature.tscn", "res://Scenes/Units/Player/Player.tscn")
+spawn_path = NodePath("../Spawner")
+
+[node name="Spawner" type="Node" parent="."]
+
+[node name="Creature" parent="." instance=ExtResource("2_3tx73")]
+position = Vector2(75, -49)
